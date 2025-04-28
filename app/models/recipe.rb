@@ -1,4 +1,9 @@
 class Recipe < ApplicationRecord
+  has_many :ingredient_recipes
+  has_many :ingredients, through: :ingredient_recipes
+  has_many :recipe_users
+  has_many :users, through: :recipe_users
+  
   validates :title, presence: true, allow_blank: false
   validates :description, presence: true, allow_blank: false
   validates :cuisine, presence: true, allow_blank: false

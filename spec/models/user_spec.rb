@@ -9,4 +9,9 @@ RSpec.describe User, type: :model do
     it { should validate_uniqueness_of(:username) }
     it { should validate_uniqueness_of(:email) }
   end
+
+  describe "associations" do
+    it { should have_many(:recipe_users) }
+    it { should have_many(:recipes).through(:recipe_users)}
+  end
 end

@@ -11,4 +11,11 @@ RSpec.describe Recipe, type: :model do
     it { should validate_presence_of(:instructions) }
     it { should validate_presence_of(:nutrition_facts) }
   end
+
+  describe "associations" do
+    it { should have_many(:ingredient_recipes) }
+    it { should have_many(:ingredients).through(:ingredient_recipes)}
+    it { should have_many(:recipe_users) }
+    it { should have_many(:users).through(:recipe_users) }
+  end
 end
